@@ -1,25 +1,24 @@
 RegisterNetEvent('crimeticket:notifyAdmin', function(senderSrc, senderName)
     local display = true
-    local keyE, keyY = 38, 246
+    local keyE, keyY = 38, 246 -- E, Y
     local timer = GetGameTimer() + 10000
     local firstShow = true
     local drawY = 0.88
 
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while display and GetGameTimer() < timer do
-            Citizen.Wait(0)
+            Wait(0)
             if firstShow then
                 PlaySoundFrontend(-1, "SELECT", "HUD_LIQUOR_STORE_SOUNDSET", true)
                 firstShow = false
             end
 
             DrawBottomCenterTextWithBlackStrip(
-                'Крайм-тикет от игрока "'..senderName..'"\n~g~E~s~ - наблюдать    ~r~Y~s~ - отменить',
+                ('Крайм-тикет от игрока "%s"\n~g~E~s~ - следить    ~r~Y~s~ - отменить'):format(senderName),
                 0.5, drawY, 0.35, 255,255,255,255, 0.92
             )
             if IsControlJustReleased(0, keyE) then
-                -- SPECTATE через событие txAdmin
-                TriggerEvent('txAdmin:menu:spectatePlayer', senderSrc)
+                TriggerServerEvent('ps-adminmenu:forceSpectateSimple', senderSrc)
                 display = false
             elseif IsControlJustReleased(0, keyY) then
                 display = false
