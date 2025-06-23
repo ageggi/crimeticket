@@ -1,9 +1,17 @@
 fx_version 'cerulean'
 game 'gta5'
 
-author 'YourName'
-description 'Crime Ticket system for QBCore. /crimeticket to alert admins.'
-version '1.0.1'
+author 'yourname'
+description 'QBCore Crime Ticket Notification'
+version '1.0.0'
 
-server_script 'server.lua'
 client_script 'client.lua'
+server_script 'server.lua'
+
+ui_page 'html/index.html'
+
+files {
+    'html/index.html',
+    'html/style.css',
+    'html/main.js'
+}

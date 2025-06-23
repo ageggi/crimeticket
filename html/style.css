@@ -1,0 +1,39 @@
+#tickets-container {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.crime-ticket {
+    min-width: 400px;
+    max-width: 600px;
+    margin: 0 auto 12px auto;
+    background: rgba(32,32,32,0.96);
+    border-radius: 15px;
+    padding: 22px 32px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    pointer-events: all;
+    transition: opacity 0.3s;
+}
+
+.crime-ticket .title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.crime-ticket .desc {
+    margin-bottom: 7px;
+}
+.crime-ticket .hint {
+    font-size: 15px;
+    color: #ffc107;
+    margin-top: 10px;
+}
